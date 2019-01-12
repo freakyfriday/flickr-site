@@ -1,0 +1,14 @@
+<div>
+    <div class="input-group mb-3">
+      <input type="text" class="form-control" [(ngModel)]="searchString$" (keydown.enter)="searchPublicPhotos()" placeholder="Search photos by keyword" aria-label="Search photos by keyword" aria-describedby="basic-addon2">
+      <div class="input-group-append">
+        <button class="btn btn-outline-secondary" type="button" (click)="searchPublicPhotos()">Search</button>
+      </div>
+    </div>
+</div>
+
+<ul ngClass="list-group">
+  <li ngClass="list-group-item" *ngFor="let photo of photos$"> 
+    <app-photo [photo]=photo></app-photo>
+  </li>
+</ul>
