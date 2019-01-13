@@ -7,7 +7,21 @@ body {
  background-color: #f8f8ff;
 }
 
+h1 {
+    font-size:5vw
+}
+
 .photo {
     width:80vw;
     min-width:280px;
+}
+
+
+@media screen 
+ and (max-width: 400px) 
+{ 
+   h1 {
+       font-size:6vw
+   }
+
 }
