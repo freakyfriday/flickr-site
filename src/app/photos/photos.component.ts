@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { PhotoService } from '../photo.service';
-import { observable } from 'rxjs';
 import _ from 'lodash';
 
 @Component({
@@ -27,6 +26,9 @@ export class PhotosComponent implements OnInit {
     this.data.getPublicPhotos().subscribe(
       (data: any)=> {
         this.photos$ = (data && data.items) ? data.items : [];
+      },
+      error => { // error path
+        //alert user to error
       }
     )
   }
@@ -37,6 +39,9 @@ export class PhotosComponent implements OnInit {
       this.data.searchPublicPhotos(this.searchString$).subscribe(
         (data: any)=> {
           this.photos$ = (data && data.items) ? data.items : [];
+        },
+        error => { // error path
+          //alert user to error
         }
       )
     }else{
