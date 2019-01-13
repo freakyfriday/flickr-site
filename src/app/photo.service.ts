@@ -1,20 +1,22 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { environment } from '../environments/environment';
 
-var api_uri = "http://http://localhost:3000/"; //https://flickr-api.azurewebsites.net
 
 @Injectable({
   providedIn: 'root'
 })
 export class PhotoService {
 
+  serviceUrl = environment.serviceUrl;
+
   constructor(private http:HttpClient) { }
 
   getPublicPhotos() {
-    return this.http.get(`${api_uri}/photos/public`)
+    return this.http.get(`${this.serviceUrl}/photos/public`)
   }
 
   searchPublicPhotos(searchString:string) {
-    return this.http.post(`${api_uri}/photos/search`, {searchString})
+    return this.http.post(`${this.serviceUrl}/photos/search`, {searchString})
   }
 }
